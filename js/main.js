@@ -1,6 +1,13 @@
 "use strict";
 
 const list = document.querySelector(".js-list");
+const addbutton = document.querySelector(".js-btn-add");
+const form = document.querySelector(".new-form");
+const cancelbutton = document.querySelector(".js-btn-cancel");
+const inputform1 = document.querySelector(".js-inputform1");
+const inputform2 = document.querySelector(".js-inputform2");
+const inputform3 = document.querySelector(".js-inputform3");
+const inputform4 = document.querySelector(".js-inputform4");
 
 
 const kittenOne = `<li class="card">
@@ -41,3 +48,17 @@ const kittenThree = `<li class="card">
     </p>
  </li>`;
  list.innerHTML = kittenOne + kittenTwo + kittenThree
+
+ addbutton.addEventListener('click', ()=>{
+ form.classList.toggle('collapsed');
+ });
+
+ cancelbutton.addEventListener('click', ()=>{
+ form.classList.add('collapsed');
+ inputform1.value = "";
+ inputform2.value = "";
+ inputform3.value = "";
+ inputform4.value = "";
+});
+
+ 
