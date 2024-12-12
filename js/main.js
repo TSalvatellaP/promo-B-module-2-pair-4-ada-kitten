@@ -60,10 +60,38 @@ const kittenThree = `<li class="card">
  </li>`;
 
  list.innerHTML = kittenOne + kittenTwo + kittenThree;
+//Ejercicio 
 
- addbutton.addEventListener('click', ()=>{
- form.classList.toggle('collapsed');
- });
+function renderKitten(url, desc, name, race) {
+  //completa el código
+}
+
+
+
+ //Ejercicio formulario
+function showNewCatForm() {
+  form.classList.remove("collapsed");
+}
+function hideNewCatForm() {
+  form.classList.add("collapsed");
+}
+
+function handleClick() {
+  
+  if (form.classList.contains("collapsed")) {
+    showNewCatForm();
+    
+  } 
+  else {
+    hideNewCatForm();
+    
+    }
+
+}
+
+addbutton.addEventListener('click', handleClick);
+
+//de momento
 
  cancelbutton.addEventListener('click', ()=>{
  form.classList.add('collapsed');
