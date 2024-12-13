@@ -37,12 +37,12 @@ if (kittenRace1 === "") {
   else {
     breedText = kittenRace1;
       }
+function renderKitten(url, name, race, desc) {
+  return url, name, race, desc;
+}
+renderKitten(${kittenImage1}, ${kittenName1}, ${kittenRace1}, ${kittenDesc1});
 
 const kittenOne = `<li class="card">
-  <img class="card_img" src="${kittenImage1}" alt="gatito"/>
-  <h3 class="card_title">${kittenName1}</h3>
-  <h4 class="card_race">${breedText}</h4>
-  <p class="card_description">${kittenDesc1}</p>
 </li>`;
 
 const kittenTwo = `<li class="card">
@@ -62,11 +62,10 @@ const kittenThree = `<li class="card">
  list.innerHTML = kittenOne + kittenTwo + kittenThree;
 //Ejercicio 
 
-function renderKitten(url, desc, name, race) {
-  //completa el código
+/*function renderKitten(url, name, race, desc) {
+  return url + name + race + desc;
 }
-
-
+renderKitten(kittenImage1, kittenName1, kittenRace1, kittenDesc1);*/
 
  //Ejercicio formulario
 function showNewCatForm() {
