@@ -13,6 +13,7 @@ const descrSearchText = document.querySelector(".js_in_search_desc");
 
 const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
 const kittenName1 = "Anastacio";
+//kittenName1 = kittenName1.toUpperCase();
 const kittenRace1 = "";
 const kittenDesc1 =
   "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
@@ -37,35 +38,24 @@ if (kittenRace1 === "") {
   else {
     breedText = kittenRace1;
       }
+      
+//Ejercicio function 2
 function renderKitten(url, name, race, desc) {
-  return url, name, race, desc;
+  return `<li class="card">
+<img class="card_img" src="${url}" alt="sphynx-cat"/>
+     <h3 class="card_title">${name}</h3>
+     <h4 class="card_race">${breedText}</h4>
+    <p class="card_description">${desc}</p>
+</li>`;
 }
-renderKitten(${kittenImage1}, ${kittenName1}, ${kittenRace1}, ${kittenDesc1});
 
-const kittenOne = `<li class="card">
-</li>`;
-
-const kittenTwo = `<li class="card">
-<img class="card_img" src="${kittenImage2}" alt="sphynx-cat"/>
-     <h3 class="card_title">${kittenName2}</h3>
-     <h4 class="card_race">${kittenRace2}</h4>
-    <p class="card_description">${kittenDesc2}</p>
-</li>`;
-
-const kittenThree = `<li class="card">
-<img class="card_img" src="${kittenImage3}" alt="maine-coon-cat" />
-    <h3 class="card_title">${kittenName3}</h3>
-    <h4 class="card_race">${kittenRace3}</h4>
-    <p class="card_description">${kittenDesc3}</p>
- </li>`;
+const kittenOne = renderKitten(kittenImage1, kittenName1, kittenRace1, kittenDesc1);
+const kittenTwo = renderKitten(kittenImage2, kittenName2, kittenRace2, kittenDesc2);
+const kittenThree = renderKitten(kittenImage3, kittenName3, kittenRace3, kittenDesc3)
 
  list.innerHTML = kittenOne + kittenTwo + kittenThree;
-//Ejercicio 
 
-/*function renderKitten(url, name, race, desc) {
-  return url + name + race + desc;
-}
-renderKitten(kittenImage1, kittenName1, kittenRace1, kittenDesc1);*/
+
 
  //Ejercicio formulario
 function showNewCatForm() {
