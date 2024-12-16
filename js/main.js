@@ -39,12 +39,12 @@ if (kittenRace1 === "") {
     breedText = kittenRace1;
       }
       
-//Ejercicio function 2
+//Ejercicio function I, 2
 function renderKitten(url, name, race, desc) {
   return `<li class="card">
 <img class="card_img" src="${url}" alt="sphynx-cat"/>
      <h3 class="card_title">${name}</h3>
-     <h4 class="card_race">${breedText}</h4>
+     <h4 class="card_race">${race}</h4>
     <p class="card_description">${desc}</p>
 </li>`;
 }
@@ -54,8 +54,6 @@ const kittenTwo = renderKitten(kittenImage2, kittenName2, kittenRace2, kittenDes
 const kittenThree = renderKitten(kittenImage3, kittenName3, kittenRace3, kittenDesc3)
 
  list.innerHTML = kittenOne + kittenTwo + kittenThree;
-
-
 
  //Ejercicio formulario
 function showNewCatForm() {
@@ -90,7 +88,7 @@ addbutton.addEventListener('click', handleClick);
  inputform4.value = "";
 });
 
-searchButton.addEventListener("click", (ev) => {
+/*searchButton.addEventListener("click", (ev) => {
         ev.preventDefault();
         const descrValue = descrSearchText.value; 
         if (kittenDesc1.includes(descrValue)) {
@@ -102,7 +100,25 @@ searchButton.addEventListener("click", (ev) => {
         if (kittenDesc3.includes(descrValue)) {
               list.innerHTML = kittenThree;
             }
-      });
+      });*/
+
+//Ejercicio function II, 1
+
+function filterKitten (ev){
+  ev.preventDefault();
+        const descrValue = descrSearchText.value; 
+        if (kittenDesc1.includes(descrValue)) {
+          list.innerHTML = kittenOne;
+          }
+        if (kittenDesc2.includes(descrValue)) {
+            list.innerHTML = kittenTwo;
+            }
+        if (kittenDesc3.includes(descrValue)) {
+              list.innerHTML = kittenThree;
+            }
+  };
+
+searchButton.addEventListener('click', filterKitten);
 
 
 
