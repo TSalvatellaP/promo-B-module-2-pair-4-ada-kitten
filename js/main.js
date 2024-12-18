@@ -15,15 +15,15 @@ const descrSearchText = document.querySelector(".js_in_search_desc");
 //Ejercicio de Objetos. ejemplo de un objeto con la información del primer gatito
 const kittenData_1 = {
   image: "https://dev.adalab.es/gato-siames.webp",
-  name: 'Anastacio',
-  race: 'Siames',
+  name: 'Anastacio'.toUpperCase(),
+  race: '',
   desc: 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
  
 };
 
 const kittenData_2 = {
   image: "https://dev.adalab.es/sphynx-gato.webp",
-  name: 'Fiona',
+  name: 'Fiona'.toUpperCase(),
   race: 'Sphynx',
   desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
  
@@ -31,32 +31,40 @@ const kittenData_2 = {
 
 const kittenData_3 = {
   image: "https://dev.adalab.es/maine-coon-cat.webp",
-  name: 'Cielo',
+  name: 'Cielo'.toUpperCase(),
   race: 'Maine Coon',
   desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
  
 };
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3]; 
+
+//Esto habría que hacerse para los 3 gatitos, Bonus Condicionales
+/*let breedText = "";
+if (kittenData_1.race === "") { habría que repetirlo por cada gatito
+   breedText = 'Uy que despiste, no sabemos su raza';
+  } 
+  else {
+    breedText = kittenData_1.race;
+  };*/
+
+function renderRace(race){
+  if (race === "") { 
+    return 'Uy que despiste, no sabemos su raza';
+   } 
+   else {
+     return race;
+   };
+}
 
 function renderKitten(kittenData) {
   return `<li class="card">
 <img class="card_img" src="${kittenData.image}" alt="sphynx-cat"/>
      <h3 class="card_title">${kittenData.name}</h3>
-     <h4 class="card_race">${kittenData.race}</h4>
+     <h4 class="card_race">${renderRace(kittenData.race)}</h4>
     <p class="card_description">${kittenData.desc}</p>
 </li>`;
     }
-list.innerHTML= renderKitten(kittenData_1) + renderKitten(kittenData_2) + renderKitten(kittenData_3);
-
-
-//Esto habría que hacerse para los 3 gatitos
-/*let breedText = "";
-if (kittenRace1 === "") {
-  breedText = 'Uy que despiste, no sabemos su raza';
-  } 
-  else {
-    breedText = kittenRace1;
-      }
-*/
+list.innerHTML= renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]); 
 
  //Ejercicio formulario
 function showNewCatForm() {
@@ -70,13 +78,10 @@ function handleClick() {
   
   if (form.classList.contains("collapsed")) {
     showNewCatForm();
-    
   } 
   else {
     hideNewCatForm();
-    
-    }
-
+  }
 }
 
 addbutton.addEventListener('click', handleClick);
@@ -108,5 +113,5 @@ function filterKitten (ev){
 
 searchButton.addEventListener('click', filterKitten);
 
-
+ 
 
