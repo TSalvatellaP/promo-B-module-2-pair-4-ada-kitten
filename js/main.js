@@ -38,6 +38,8 @@ const kittenData_3 = {
 };
 const kittenDataList = [kittenData_1, kittenData_2, kittenData_3]; 
 
+
+
 //Esto habría que hacerse para los 3 gatitos, Bonus Condicionales
 /*let breedText = "";
 if (kittenData_1.race === "") { habría que repetirlo por cada gatito
@@ -64,7 +66,16 @@ function renderKitten(kittenData) {
     <p class="card_description">${kittenData.desc}</p>
 </li>`;
     }
-list.innerHTML= renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]); 
+
+function renderKittenList(kittenDataList) {
+  for (let i = 0; i <kittenDataList.length; i++){
+    list.innerHTML += renderKitten(kittenDataList[i]);
+    
+  }
+  
+}
+renderKittenList(kittenDataList);
+
 
  //Ejercicio formulario
 function showNewCatForm() {
@@ -96,22 +107,18 @@ addbutton.addEventListener('click', handleClick);
  inputform4.value = "";
 });
 
-
-function filterKitten (ev){
-  ev.preventDefault();
-        const descrValue = descrSearchText.value; 
-        if (kittenData_1.desc.includes(descrValue)) {
-          list.innerHTML = renderKitten(kittenData_1);
-          }
-        if (kittenData_2.desc.includes(descrValue)) {
-            list.innerHTML = renderKitten(kittenData_2);
-            }
-        if (kittenData_3.desc.includes(descrValue)) {
-              list.innerHTML = renderKitten(kittenData_3);
-            }
-  };
+function filterKitten(event) {
+  event.preventDefault();
+  const descrValue = descrSearchText.value;
+  list.innerHTML = "";
+  for (const kittenItem of kittenDataList) {
+    if (kittenItem.desc.includes(descrValue)) {
+    list.innerHTML += renderKitten(kittenItem) ;
+    }
+  
+  }
+}
 
 searchButton.addEventListener('click', filterKitten);
 
- 
 
